@@ -1,0 +1,21 @@
+package com.jmrsa.moviecrudapp.domain.model
+
+import com.jmrsa.moviecrudapp.data.remote.dto.Cast
+import com.jmrsa.moviecrudapp.data.remote.dto.Director
+
+data class Movie(
+    val budget: Int?,
+    val cast: List<Cast?>?,
+    val director: Director?,
+    val genres: List<String?>?,
+    val id: Int?,
+    val language: String?,
+    val overview: String?,
+    val posterUrl: String?,
+    val rating: Double?,
+    val releaseDate: String?,
+    val revenue: Int?,
+    val reviews: Int?,
+    val runtime: Int?,
+    val title: String?
+)
