@@ -1,7 +1,14 @@
 package com.jmrsa.moviecrudapp.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(
+    tableName = "users"
+)
 data class User(
-    val name: String,
+    val userName: String,
     val email: String,
     val password: String,
+    @PrimaryKey(autoGenerate = true) val userId: Int? = null
 )
