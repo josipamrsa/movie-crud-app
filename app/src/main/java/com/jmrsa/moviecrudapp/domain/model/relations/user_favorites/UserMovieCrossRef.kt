@@ -5,5 +5,5 @@ import androidx.room.Entity
 @Entity(primaryKeys = ["userId", "id"])
 data class UserMovieCrossRef(
     val userId: Int,
-    val id: String
+    val id: Int
 )

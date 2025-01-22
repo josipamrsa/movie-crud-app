@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.jmrsa.moviecrudapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.jmrsa.moviecrudapp"
