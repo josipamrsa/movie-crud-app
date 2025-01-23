@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.Flow
 class UserRepositoryImpl(
     private val userDao: UserDao
 ) : UserRepository {
-    override suspend fun registerUser(name: String, email: String, password: String) {
-        userDao.insertUser(
+    override suspend fun registerUser(name: String, email: String, password: String): Long {
+        return userDao.insertUser(
             User(
                 userName = name,
                 email = email,
@@ -21,8 +21,8 @@ class UserRepositoryImpl(
         )
     }
 
-    override suspend fun getCurrentUser(userId: Int): User {
-        return userDao.getUser(userId)
+    override suspend fun getCurrentUser(userName: String): User {
+        return userDao.getUser(userName)
     }
 
     override suspend fun getUserFavoriteMovies(userId: Int): Flow<List<UserWithMovies>> {

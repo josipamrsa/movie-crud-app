@@ -9,20 +9,22 @@ import com.jmrsa.moviecrudapp.domain.model.User
 data class UserWithMovies(
     @Embedded val user: User,
     @Relation(
+        entity = Movie::class,
         parentColumn = "userId",
         entityColumn = "id",
         associateBy = Junction(UserMovieCrossRef::class)
     )
-    val favorites: List<Movie>
+    val favorites: MutableList<Movie>
 )
 
 data class MovieWithUsers(
     @Embedded val movie: Movie,
     @Relation(
+        entity = User::class,
         parentColumn = "id",
         entityColumn = "userId",
         associateBy = Junction(UserMovieCrossRef::class)
     )
-    val favoritedByUsers: List<User>
+    val favoritedByUsers: MutableList<User>
 )
 

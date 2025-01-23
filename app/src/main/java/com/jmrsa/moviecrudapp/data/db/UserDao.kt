@@ -12,17 +12,17 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM users WHERE userId = :userId")
-    fun getUser(userId: Int): User
+    @Query("SELECT * FROM users WHERE userName = :userName")
+    fun getUser(userName: String): User
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUser(user: User)
+    fun insertUser(user: User) : Long
 
     @Transaction
     @Query("SELECT * FROM users WHERE userId = :userId")
-    suspend fun getUserFavorites(userId: Int) : Flow<List<UserWithMovies>>
+    fun getUserFavorites(userId: Int) : Flow<List<UserWithMovies>>
 
-    @Transaction
-    @Update
-    suspend fun updateUserFavorites(userId: Int, movieId: Int)
+    //@Transaction
+    //@Update
+    //suspend fun updateUserFavorites(userFavorites: List<UserWithMovies>)
 }

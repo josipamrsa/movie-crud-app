@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MovieCRUDApp</string>
+
+    <!-- UI element labels -->
+    <string name="movie_crud_name_input">Name</string>
+    <string name="movie_crud_email_input">E-Mail Address*</string>
+    <string name="movie_crud_password_input">Password*</string>
+    <string name="movie_crud_confirm_input">Confirm Password*</string>
+    <string name="movie_crud_sign_up_button">Sign Up</string>
+
+
+    <!-- Content descriptors -->
+    <string name="movie_crud_img_header">MovieCRUDApp Image Header</string>
+    <string name="movie_crud_img_picker">MovieCRUDApp Image Picker Icon</string>
 </resources>

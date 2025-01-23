@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageHeader"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/movie_crud_img_header"
+            android:scaleType="centerCrop"
+            android:src="@drawable/header_sign_up"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:layout_width="116dp"
+            android:layout_height="116dp"
+            android:src="@drawable/image_picker_icon"
+            android:contentDescription="@string/movie_crud_img_picker"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/inputLayoutConfirm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounder_corner_input"
+            android:elevation="5dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:textColorHint="@color/black_alpha40"
+            app:hintTextColor="@color/black_alpha40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageHeader"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputName"
+                android:hint="@string/movie_crud_name_input"
+                android:background="@color/transparent"
+                android:layout_width="match_parent"
+                android:textSize="14sp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="17dp"
+                android:paddingVertical="12dp"
+                android:layout_marginBottom="7dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounder_corner_input"
+            android:elevation="5dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:textColorHint="@color/black_alpha40"
+            app:hintTextColor="@color/black_alpha40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutName"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/movie_crud_email_input"
+                android:background="@color/transparent"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="17dp"
+                android:paddingVertical="12dp"
+                android:layout_marginBottom="7dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounder_corner_input"
+            android:elevation="5dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:textColorHint="@color/black_alpha40"
+            app:hintTextColor="@color/black_alpha40"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutEmail"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:hint="@string/movie_crud_password_input"
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="17dp"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="7dp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutConfirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounder_corner_input"
+            android:elevation="5dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:textColorHint="@color/black_alpha40"
+            app:hintTextColor="@color/black_alpha40"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:hint="@string/movie_crud_confirm_input"
+                android:inputType="textPassword"
+                android:textSize="14sp"
+                android:layout_marginHorizontal="17dp"
+                android:paddingVertical="8dp"
+                android:layout_marginBottom="7dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_button"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="8dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:text="@string/movie_crud_sign_up_button"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/inputLayoutConfirm"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

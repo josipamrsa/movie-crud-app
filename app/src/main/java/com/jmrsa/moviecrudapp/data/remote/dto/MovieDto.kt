@@ -5,11 +5,11 @@ data class MovieDto(
     @SerializedName("budget")
     val budget: Int?,
     @SerializedName("cast")
-    val cast: List<Cast?>?,
+    val cast: List<Cast>?,
     @SerializedName("director")
     val director: Director?,
     @SerializedName("genres")
-    val genres: List<String?>?,
+    val genres: List<String>?,
     @SerializedName("id")
     val id: Int?,
     @SerializedName("language")

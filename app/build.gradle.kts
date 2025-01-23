@@ -15,6 +15,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        dataBinding.enable = true
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -56,6 +57,11 @@ dependencies {
     implementation(libs.okhttp.interceptor)
     implementation(libs.bundles.koin)
     implementation(libs.room)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
     testImplementation(libs.junit)

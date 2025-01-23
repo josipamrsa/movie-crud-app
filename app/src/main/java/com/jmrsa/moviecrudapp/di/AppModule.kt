@@ -6,6 +6,8 @@ import com.jmrsa.moviecrudapp.di.utils.DatabaseUtils
 import com.jmrsa.moviecrudapp.di.utils.NetworkUtils
 import com.jmrsa.moviecrudapp.domain.repository.UserRepository
 import com.jmrsa.moviecrudapp.domain.repository.MovieRepository
+import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCase
+import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCaseImpl
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
@@ -25,4 +27,6 @@ val appModule = module {
 
     singleOf(::MovieRepositoryImpl).bind<MovieRepository>()
     singleOf(::UserRepositoryImpl).bind<UserRepository>()
+
+    factory<RegisterUserUseCase> { RegisterUserUseCaseImpl(get()) }
 }
