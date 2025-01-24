@@ -7,9 +7,15 @@
     <string name="movie_crud_password_input">Password*</string>
     <string name="movie_crud_confirm_input">Confirm Password*</string>
     <string name="movie_crud_sign_up_button">Sign Up</string>
-
+    <string name="movie_crud_label_your_favorites">Your <b>Favorites</b></string>
+    <string name="movie_crud_label_staff_picks">Our <b>Staff Picks</b></string>
+    <string name="movie_crud_label_greeting">Hello👋</string>
 
     <!-- Content descriptors -->
-    <string name="movie_crud_img_header">MovieCRUDApp Image Header</string>
-    <string name="movie_crud_img_picker">MovieCRUDApp Image Picker Icon</string>
+    <string name="movie_crud_img_header_cd">MovieCRUDApp Image Header</string>
+    <string name="movie_crud_img_picker_cd">MovieCRUDApp Image Picker Icon</string>
+    <string name="movie_crud_search_icon_cd">MovieCRUDApp Image Search Icon</string>
+    <string name="movie_crud_movie_cover_cd">MovieCRUDApp User Favorited Movie Cover</string>
+    <string name="movie_crud_movie_cover_small_cd">MovieCRUDApp Movie Cover</string>
+
 </resources>

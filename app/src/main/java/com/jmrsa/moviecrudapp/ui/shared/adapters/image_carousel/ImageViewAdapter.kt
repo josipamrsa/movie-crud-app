@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.ui.fragments.home.adapters.image_carousel
+package com.jmrsa.moviecrudapp.ui.shared.adapters.image_carousel
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

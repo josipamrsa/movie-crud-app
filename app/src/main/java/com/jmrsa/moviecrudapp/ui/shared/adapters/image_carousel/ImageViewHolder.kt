@@ -1,6 +1,7 @@
-package com.jmrsa.moviecrudapp.ui.fragments.home.adapters.image_carousel
+package com.jmrsa.moviecrudapp.ui.shared.adapters.image_carousel
 
 import android.content.Context
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.jmrsa.moviecrudapp.R

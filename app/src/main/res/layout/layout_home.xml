@@ -5,12 +5,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="30dp">
+        android:clipChildren="false"
+        android:layout_marginStart="30dp">
 
         <ImageView
             android:id="@+id/imageProfile"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/image_picker_icon"
             app:layout_constraintEnd_toStartOf="@+id/sectionProfileInfo"
             app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +22,7 @@
             android:id="@+id/sectionProfileInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical"
             app:layout_constraintStart_toEndOf="@+id/imageProfile"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,31 +30,42 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hello" />
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="@string/movie_crud_label_greeting" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Jane Doe" />
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:text="Jane Doe"
+                android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/buttonSearch"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_corner_input"
+            android:contentDescription="@string/movie_crud_search_icon_cd"
+            android:elevation="5dp"
+            android:src="@drawable/ic_search"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/labelYourFavorites"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/movie_crud_label_your_favorites"
+            android:layout_marginTop="40dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textAllCaps="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/sectionProfileInfo" />
 
@@ -59,9 +73,27 @@
             android:id="@+id/rvMovieFavorites"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipChildren="false"
             app:layout_constraintTop_toBottomOf="@+id/labelYourFavorites" />
 
+        <TextView
+            android:id="@+id/labelStaffPicks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_crud_label_staff_picks"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/black"
+            android:paddingBottom="15dp"
+            android:textSize="12sp"
+            android:textAllCaps="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvMovieFavorites" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStaffPicks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/labelStaffPicks" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
