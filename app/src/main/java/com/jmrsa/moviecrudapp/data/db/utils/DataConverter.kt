@@ -10,7 +10,7 @@ import com.jmrsa.moviecrudapp.domain.model.helpers.CastList
 import com.jmrsa.moviecrudapp.domain.model.helpers.DirectorInfo
 
 class DataConverter {
-    @TypeConverter
+    /*@TypeConverter
     fun fromDirector(director: DirectorInfo?): String {
         return Gson().toJson(director)
     }
@@ -29,7 +29,7 @@ class DataConverter {
     fun toCastList(value: String?): CastList? {
         return if (value == null) null
         else Gson().fromJson(value, CastList::class.java)
-    }
+    }*/
 
     @TypeConverter
     fun fromMovieList(movieList: MutableList<Movie>?): String? {

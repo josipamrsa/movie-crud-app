@@ -15,8 +15,8 @@ import com.jmrsa.moviecrudapp.domain.model.helpers.DirectorInfo
 )
 data class Movie(
     val budget: Int?,
-    val cast: CastList?,
-    val director: DirectorInfo?,
+    //val cast: CastList?,
+    //val director: DirectorInfo?,
     val genres: MutableList<String>,
     @PrimaryKey(autoGenerate = false) val id: Int,
     val language: String?,
@@ -24,7 +24,7 @@ data class Movie(
     val posterUrl: String?,
     val rating: Double?,
     val releaseDate: String?,
-    val revenue: Int?,
+    //val revenue: Int?,
     val reviews: Int?,
     val runtime: Int?,
     val title: String?

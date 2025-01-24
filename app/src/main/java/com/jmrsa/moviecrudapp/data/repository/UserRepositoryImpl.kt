@@ -31,5 +31,22 @@ class UserRepositoryImpl(
 
     override suspend fun updateUserFavoriteMovies(userId: Int, movieId: Int) {
         TODO("Not yet implemented")
+
+        /*
+
+        // Fetch existing cross-references for the user
+        val oldFavorites = getCrossRefsForUser(userId)
+
+        // Delete old cross-references
+        deleteUserMovieCrossRefs(oldFavorites)
+
+        // Insert new cross-references
+        val newCrossRefs = newFavorites.map { movie ->
+            UserMovieCrossRef(userId = userId, movieId = movie.id)
+        }
+
+        insertUserMovieCrossRefs(newCrossRefs)
+
+        */
     }
 }
