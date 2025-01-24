@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.coil)
     implementation(libs.androidx.navigation.fragment)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
