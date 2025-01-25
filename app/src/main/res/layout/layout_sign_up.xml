@@ -36,8 +36,9 @@
             android:elevation="5dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="12dp"
-            android:textColorHint="@color/black_alpha40"
-            app:hintTextColor="@color/black_alpha40"
+            android:padding="10dp"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageHeader"
             app:layout_constraintStart_toStartOf="parent">
@@ -46,11 +47,10 @@
                 android:id="@+id/inputName"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginHorizontal="17dp"
-                android:layout_marginBottom="7dp"
+                android:paddingHorizontal="10dp"
+                android:textColorHint="@color/black_alpha40"
                 android:background="@color/transparent"
                 android:hint="@string/movie_crud_name_input"
-                android:paddingVertical="12dp"
                 android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -63,8 +63,9 @@
             android:elevation="5dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="12dp"
-            android:textColorHint="@color/black_alpha40"
-            app:hintTextColor="@color/black_alpha40"
+            android:padding="10dp"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputLayoutName"
             app:layout_constraintStart_toStartOf="parent">
@@ -73,11 +74,10 @@
                 android:id="@+id/inputEmail"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginHorizontal="17dp"
-                android:layout_marginBottom="7dp"
+                android:paddingHorizontal="10dp"
+                android:textColorHint="@color/black_alpha40"
                 android:background="@color/transparent"
                 android:hint="@string/movie_crud_email_input"
-                android:paddingVertical="12dp"
                 android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -90,8 +90,9 @@
             android:elevation="5dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="12dp"
-            android:textColorHint="@color/black_alpha40"
-            app:hintTextColor="@color/black_alpha40"
+            android:padding="10dp"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
             app:endIconMode="password_toggle"
             app:endIconMinSize="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -102,12 +103,11 @@
                 android:id="@+id/inputPassword"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginHorizontal="17dp"
-                android:layout_marginBottom="10dp"
                 android:background="@color/transparent"
                 android:hint="@string/movie_crud_password_input"
                 android:inputType="textPassword"
-                android:paddingVertical="8dp"
+                android:textColorHint="@color/black_alpha40"
+                android:paddingHorizontal="10dp"
                 android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -120,8 +120,9 @@
             android:elevation="5dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="12dp"
-            android:textColorHint="@color/black_alpha40"
-            app:hintTextColor="@color/black_alpha40"
+            android:padding="10dp"
+            app:hintAnimationEnabled="false"
+            app:hintEnabled="false"
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword"
@@ -131,12 +132,11 @@
                 android:id="@+id/inputConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:layout_marginHorizontal="17dp"
-                android:layout_marginBottom="10dp"
                 android:background="@color/transparent"
                 android:hint="@string/movie_crud_confirm_input"
                 android:inputType="textPassword"
-                android:paddingVertical="8dp"
+                android:textColorHint="@color/black_alpha40"
+                android:paddingHorizontal="10dp"
                 android:textSize="14sp" />
 
         </com.google.android.material.textfield.TextInputLayout>

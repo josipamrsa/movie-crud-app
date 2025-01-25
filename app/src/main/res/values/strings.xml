@@ -23,5 +23,6 @@
     <string name="movie_crud_label_rating">Rating</string>
     <string name="movie_crud_label_key_facts">Key Facts</string>
     <string name="movie_crud_label_overview">Overview</string>
+    <string name="movie_crud_label_search">Search</string>
 
 </resources>
