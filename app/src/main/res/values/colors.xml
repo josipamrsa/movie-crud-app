@@ -10,6 +10,7 @@
 
     <!-- Custom colors -->
     <color name="black_alpha40">#66000000</color>
+    <color name="darkgray_alpha5">#141C250D</color>
     <color name="transparent">#00000000</color>
 
 </resources>

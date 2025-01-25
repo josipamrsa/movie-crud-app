@@ -17,5 +17,11 @@
     <string name="movie_crud_search_icon_cd">MovieCRUDApp Image Search Icon</string>
     <string name="movie_crud_movie_cover_cd">MovieCRUDApp User Favorited Movie Cover</string>
     <string name="movie_crud_movie_cover_small_cd">MovieCRUDApp Movie Cover</string>
+    <string name="movie_crud_label_budget">Budget</string>
+    <string name="movie_crud_label_revenue">Revenue</string>
+    <string name="movie_crud_label_language">Original Language</string>
+    <string name="movie_crud_label_rating">Rating</string>
+    <string name="movie_crud_label_key_facts">Key Facts</string>
+    <string name="movie_crud_label_overview">Overview</string>
 
 </resources>
