@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.ui.fragments.base
+package com.jmrsa.moviecrudapp.presentation.fragments.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.ui
+package com.jmrsa.moviecrudapp.presentation
 
 import android.os.Bundle
 import android.view.WindowManager

@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.ui.shared.adapters.movie_list
+package com.jmrsa.moviecrudapp.presentation.shared.adapters.movie_list
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView

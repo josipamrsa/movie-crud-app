@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.ui.fragments.details
+package com.jmrsa.moviecrudapp.presentation.fragments.details
 
 import androidx.fragment.app.Fragment
 import com.jmrsa.moviecrudapp.R

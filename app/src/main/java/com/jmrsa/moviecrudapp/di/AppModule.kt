@@ -1,14 +1,21 @@
 package com.jmrsa.moviecrudapp.di
 
+import android.content.SharedPreferences
 import com.jmrsa.moviecrudapp.data.repository.MovieRepositoryImpl
+import com.jmrsa.moviecrudapp.data.repository.PreferencesRepositoryImpl
 import com.jmrsa.moviecrudapp.data.repository.UserRepositoryImpl
 import com.jmrsa.moviecrudapp.di.utils.DatabaseUtils
 import com.jmrsa.moviecrudapp.di.utils.NetworkUtils
+import com.jmrsa.moviecrudapp.di.utils.PreferencesUtils
 import com.jmrsa.moviecrudapp.domain.repository.UserRepository
 import com.jmrsa.moviecrudapp.domain.repository.MovieRepository
+import com.jmrsa.moviecrudapp.domain.repository.PreferencesRepository
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCaseImpl
+import com.jmrsa.moviecrudapp.presentation.fragments.signup.SignUpViewModel
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -22,11 +29,21 @@ val appModule = module {
 
     DatabaseUtils.apply {
         single { provideDatabase(get()) }
+        single { provideUserDao(get()) }
         single { provideUserRepository(get()) }
     }
 
-    singleOf(::MovieRepositoryImpl).bind<MovieRepository>()
-    singleOf(::UserRepositoryImpl).bind<UserRepository>()
+    PreferencesUtils.apply {
+        single<SharedPreferences> {
+            provideSharedPreference(get())
+        }
+    }
+
+    single { MovieRepositoryImpl(get()) }.bind<MovieRepository>()
+    single { UserRepositoryImpl(get()) }.bind<UserRepository>()
+    single { PreferencesRepositoryImpl(get()) }.bind<PreferencesRepository>()
 
     factory<RegisterUserUseCase> { RegisterUserUseCaseImpl(get()) }
+    //factory<GetCurrentUserUseCase> { GetCurrentUserUseCaseImpl() }
+    viewModel { SignUpViewModel(get(), get()) }
 }

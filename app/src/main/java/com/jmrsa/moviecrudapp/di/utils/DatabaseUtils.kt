@@ -15,6 +15,8 @@ object DatabaseUtils {
            UserDatabase.DATABASE_NAME
        ).build()
 
+    fun provideUserDao(database: UserDatabase) : UserDao = database.userDao
+
     fun provideUserRepository(userDao: UserDao): UserRepository =
         UserRepositoryImpl(userDao)
 }

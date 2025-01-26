@@ -1,11 +1,11 @@
-package com.jmrsa.moviecrudapp.ui.fragments.search
+package com.jmrsa.moviecrudapp.presentation.fragments.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutSearchBinding
-import com.jmrsa.moviecrudapp.ui.fragments.base.BaseFragment
+import com.jmrsa.moviecrudapp.presentation.fragments.base.BaseFragment
 
 class SearchFragment : BaseFragment<LayoutSearchBinding>() {
     override fun handleBindings(

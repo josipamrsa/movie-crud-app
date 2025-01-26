@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.ui.shared.dialogs
+package com.jmrsa.moviecrudapp.presentation.shared.dialogs
 
 import android.app.Dialog
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.ui.fragments.home
+package com.jmrsa.moviecrudapp.presentation.fragments.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutHomeBinding
-import com.jmrsa.moviecrudapp.ui.fragments.base.BaseFragment
-import com.jmrsa.moviecrudapp.ui.shared.adapters.image_carousel.ImageViewAdapter
+import com.jmrsa.moviecrudapp.presentation.fragments.base.BaseFragment
+import com.jmrsa.moviecrudapp.presentation.shared.adapters.image_carousel.ImageViewAdapter
 
 class HomeFragment : BaseFragment<LayoutHomeBinding>() {
     override fun handleBindings(

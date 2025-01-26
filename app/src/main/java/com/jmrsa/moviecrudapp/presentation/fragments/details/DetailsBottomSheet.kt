@@ -1,8 +1,8 @@
-package com.jmrsa.moviecrudapp.ui.fragments.details
+package com.jmrsa.moviecrudapp.presentation.fragments.details
 
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutDetailsBinding
-import com.jmrsa.moviecrudapp.ui.shared.dialogs.ModalBottomSheetDialog
+import com.jmrsa.moviecrudapp.presentation.shared.dialogs.ModalBottomSheetDialog
 
 class DetailsBottomSheet : ModalBottomSheetDialog<LayoutDetailsBinding>() {
     override fun getContentView(): Int = R.layout.layout_details
