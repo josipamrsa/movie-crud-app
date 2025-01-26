@@ -1,19 +1,17 @@
 package com.jmrsa.moviecrudapp.ui.fragments.signup
 
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.textfield.TextInputLayout
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutSignUpBinding
 import com.jmrsa.moviecrudapp.ui.fragments.base.BaseFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SignUpFragment : BaseFragment<LayoutSignUpBinding>() {
+
+    private val signUpViewModel: SignUpViewModel by viewModel()
 
     override fun handleBindings(
         inflater: LayoutInflater,
@@ -23,8 +21,18 @@ class SignUpFragment : BaseFragment<LayoutSignUpBinding>() {
     }
 
     override fun initView(binding: LayoutSignUpBinding) {
+        binding.viewmodel = signUpViewModel
+        binding.lifecycleOwner = this
+
         binding.apply {
-            buttonSignUp.setOnClickListener { navigateToDashboard() }
+            buttonSignUp.setOnClickListener {
+                signUpViewModel.onSignUpClicked(
+                    name = binding.inputName.text.toString(),
+                    email = binding.inputEmail.text.toString(),
+                    password = binding.inputPassword.text.toString(),
+                    confirmPassword = binding.inputConfirm.text.toString(),
+                )
+            }
         }
     }
 
