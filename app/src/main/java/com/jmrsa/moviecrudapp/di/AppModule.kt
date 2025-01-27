@@ -10,6 +10,8 @@ import com.jmrsa.moviecrudapp.di.utils.PreferencesUtils
 import com.jmrsa.moviecrudapp.domain.repository.UserRepository
 import com.jmrsa.moviecrudapp.domain.repository.MovieRepository
 import com.jmrsa.moviecrudapp.domain.repository.PreferencesRepository
+import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCase
+import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCaseImpl
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCaseImpl
 import com.jmrsa.moviecrudapp.presentation.fragments.signup.SignUpViewModel
@@ -43,7 +45,8 @@ val appModule = module {
     single { UserRepositoryImpl(get()) }.bind<UserRepository>()
     single { PreferencesRepositoryImpl(get()) }.bind<PreferencesRepository>()
 
-    factory<RegisterUserUseCase> { RegisterUserUseCaseImpl(get()) }
-    //factory<GetCurrentUserUseCase> { GetCurrentUserUseCaseImpl() }
+    factory<RegisterUserUseCase> { RegisterUserUseCaseImpl(get(), get()) }
+    factory<GetCurrentUserUseCase> { GetCurrentUserUseCaseImpl(get()) }
+
     viewModel { SignUpViewModel(get(), get()) }
 }
