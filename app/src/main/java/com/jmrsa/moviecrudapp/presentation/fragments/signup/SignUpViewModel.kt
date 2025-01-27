@@ -25,7 +25,7 @@ class SignUpViewModel(
     val effect = _effect.receiveAsFlow()
 
     init {
-        launchInContextWithProgress {
+        launchWithProgress {
             if (getCurrentUserUseCase.isCurrentUserInPreferences()) {
                 _effect.trySend(SignUpContract.Effect.NavigateToHome)
             }

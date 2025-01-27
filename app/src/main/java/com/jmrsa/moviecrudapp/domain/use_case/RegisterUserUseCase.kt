@@ -18,7 +18,7 @@ class RegisterUserUseCaseImpl(
         if (isUserRegistered >= -1) {
             preferencesRepository.currentUserName = name
             preferencesRepository.currentUserEmail = email
-            return userRepository.getCurrentUser(name)
+            return userRepository.getCurrentUser(email)
 
         } else {
             return null
