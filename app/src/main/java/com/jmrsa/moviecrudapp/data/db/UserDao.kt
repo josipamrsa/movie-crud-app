@@ -14,8 +14,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM users WHERE userName = :userName")
-    fun getUser(userName: String): User
+    @Query("SELECT * FROM users WHERE email = :email")
+    fun getUser(email: String): User
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(user: User) : Long

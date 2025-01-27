@@ -21,8 +21,8 @@ class UserRepositoryImpl(
         )
     }
 
-    override suspend fun getCurrentUser(userName: String): User {
-        return userDao.getUser(userName)
+    override suspend fun getCurrentUser(email: String): User {
+        return userDao.getUser(email)
     }
 
     override suspend fun getUserFavoriteMovies(userId: Int): Flow<List<UserWithMovies>> {

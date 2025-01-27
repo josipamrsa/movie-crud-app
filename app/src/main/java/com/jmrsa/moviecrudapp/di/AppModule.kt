@@ -12,8 +12,11 @@ import com.jmrsa.moviecrudapp.domain.repository.MovieRepository
 import com.jmrsa.moviecrudapp.domain.repository.PreferencesRepository
 import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCaseImpl
+import com.jmrsa.moviecrudapp.domain.use_case.GetMoviesUseCase
+import com.jmrsa.moviecrudapp.domain.use_case.GetMoviesUseCaseImpl
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCaseImpl
+import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeViewModel
 import com.jmrsa.moviecrudapp.presentation.fragments.signup.SignUpViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.singleOf
@@ -46,7 +49,9 @@ val appModule = module {
     single { PreferencesRepositoryImpl(get()) }.bind<PreferencesRepository>()
 
     factory<RegisterUserUseCase> { RegisterUserUseCaseImpl(get(), get()) }
-    factory<GetCurrentUserUseCase> { GetCurrentUserUseCaseImpl(get()) }
+    factory<GetCurrentUserUseCase> { GetCurrentUserUseCaseImpl(get(), get()) }
+    factory<GetMoviesUseCase> { GetMoviesUseCaseImpl(get()) }
 
     viewModel { SignUpViewModel(get(), get()) }
+    viewModel { HomeViewModel(get(), get()) }
 }
