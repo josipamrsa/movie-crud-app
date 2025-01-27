@@ -4,15 +4,18 @@ import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.jmrsa.moviecrudapp.databinding.ItemCarouselBinding
+import com.jmrsa.moviecrudapp.domain.model.Movie
+import com.jmrsa.moviecrudapp.presentation.models.AppMovie
 
 class ImageViewHolder(
-    private val context: Context,
-    private val binding: ItemCarouselBinding
+    private val binding: ItemCarouselBinding,
+    private val onImageClick: (item: AppMovie) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bindImageItem(imageUrl: String) {
+    fun bindImageItem(item: AppMovie) {
         binding.apply {
-            imageFavoritedMovies.load(imageUrl)
+            imageFavoritedMovies.load(item.posterUrl)
+            imageFavoritedMovies.setOnClickListener { onImageClick(item) }
         }
     }
 }
