@@ -21,8 +21,8 @@ interface UserDao {
     fun insertUser(user: User) : Long
 
     @Transaction
-    @Query("SELECT * FROM users WHERE userId = :userId")
-    fun getUserFavorites(userId: Int) : Flow<List<UserWithMovies>>
+    @Query("SELECT * FROM users WHERE email = :email")
+    fun getUserFavorites(email: String) : Flow<List<UserWithMovies>>
 
     @Query("SELECT * FROM UserMovieCrossRef WHERE userId = :userId")
     fun getCrossRefsForUser(userId: Int): List<UserMovieCrossRef>

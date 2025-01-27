@@ -25,9 +25,10 @@ class UserRepositoryImpl(
         return userDao.getUser(email)
     }
 
-    override suspend fun getUserFavoriteMovies(userId: Int): Flow<List<UserWithMovies>> {
-        return userDao.getUserFavorites(userId)
+    override suspend fun getUserFavoriteMovies(email: String): Flow<List<UserWithMovies>> {
+        return userDao.getUserFavorites(email)
     }
+
 
     override suspend fun updateUserFavoriteMovies(userId: Int, movieId: Int) {
         TODO("Not yet implemented")

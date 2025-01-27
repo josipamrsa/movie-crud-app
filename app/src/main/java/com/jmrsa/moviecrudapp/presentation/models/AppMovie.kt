@@ -19,7 +19,8 @@ data class AppMovie(
     val revenue: Int?,
     val reviews: Int?,
     val runtime: Int?,
-    val title: String?
+    val title: String?,
+    val isFavorited: Boolean = false
 ) : Parcelable
 
 fun Movie.toAppMovie() = AppMovie(

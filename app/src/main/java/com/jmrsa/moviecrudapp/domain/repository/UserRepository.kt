@@ -8,6 +8,6 @@ import kotlinx.coroutines.flow.Flow
 interface UserRepository {
     suspend fun registerUser(name: String, email: String, password: String) : Long
     suspend fun getCurrentUser(email: String) : User
-    suspend fun getUserFavoriteMovies(userId: Int): Flow<List<UserWithMovies>>
+    suspend fun getUserFavoriteMovies(email: String): Flow<List<UserWithMovies>>
     suspend fun updateUserFavoriteMovies(userId: Int, movieId: Int)
 }

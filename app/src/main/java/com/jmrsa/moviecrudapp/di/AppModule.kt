@@ -14,6 +14,8 @@ import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCaseImpl
 import com.jmrsa.moviecrudapp.domain.use_case.GetMoviesUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.GetMoviesUseCaseImpl
+import com.jmrsa.moviecrudapp.domain.use_case.GetUserFavoritesUseCase
+import com.jmrsa.moviecrudapp.domain.use_case.GetUserFavoritesUseCaseImpl
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCaseImpl
 import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeViewModel
@@ -44,14 +46,15 @@ val appModule = module {
         }
     }
 
-    single { MovieRepositoryImpl(get()) }.bind<MovieRepository>()
+    single { MovieRepositoryImpl(get(), get()) }.bind<MovieRepository>()
     single { UserRepositoryImpl(get()) }.bind<UserRepository>()
     single { PreferencesRepositoryImpl(get()) }.bind<PreferencesRepository>()
 
     factory<RegisterUserUseCase> { RegisterUserUseCaseImpl(get(), get()) }
     factory<GetCurrentUserUseCase> { GetCurrentUserUseCaseImpl(get(), get()) }
     factory<GetMoviesUseCase> { GetMoviesUseCaseImpl(get()) }
+    factory<GetUserFavoritesUseCase> { GetUserFavoritesUseCaseImpl(get()) }
 
     viewModel { SignUpViewModel(get(), get()) }
-    viewModel { HomeViewModel(get(), get()) }
+    viewModel { HomeViewModel(get(), get(), get()) }
 }

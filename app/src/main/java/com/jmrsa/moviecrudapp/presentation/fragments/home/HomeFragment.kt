@@ -37,13 +37,13 @@ class HomeFragment : BaseFragment<LayoutHomeBinding>() {
             binding.apply {
                 rvMovieFavorites.apply {
                     layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-                    adapter = ImageViewAdapter(movieData.staffPicks) { appMovie -> {} }
+                    adapter = ImageViewAdapter(movieData.userFavorites.orEmpty()) { appMovie -> {} }
                 }
 
                 rvStaffPicks.apply {
                     layoutManager = LinearLayoutManager(context)
                     adapter = MovieListAdapter(
-                        movieData.staffPicks,
+                        movieData.staffPicks.orEmpty(),
                         ::navigateToMovieDetails
                     ) { appMovie -> {} }
                 }

@@ -21,8 +21,8 @@ class MovieListViewHolder(
             labelMovieRating.rating = item.rating?.toFloat() ?: 0f
             imageMovieCover.load(item.posterUrl)
             buttonFavorite.setImageResource(
-                if (false) R.drawable.ic_favorited_outline
-                else R.drawable.ic_favorited_fill
+                if (item.isFavorited) R.drawable.ic_favorited_fill
+                else R.drawable.ic_favorited_outline
             )
             sectionMovieInfo.setOnClickListener { onMovieItemClicked(item) }
             buttonFavorite.setOnClickListener { onFavoriteClicked(item) }
