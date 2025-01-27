@@ -1,4 +1,4 @@
-package com.jmrsa.moviecrudapp.presentation.fragments.details
+package com.jmrsa.moviecrudapp.presentation.fragments.home.details
 
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutDetailsBinding
