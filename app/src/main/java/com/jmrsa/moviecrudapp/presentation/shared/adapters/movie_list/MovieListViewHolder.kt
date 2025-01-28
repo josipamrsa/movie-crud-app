@@ -24,6 +24,7 @@ class MovieListViewHolder(
                 else R.drawable.ic_favorited_outline
             )
             sectionMovieInfo.setOnClickListener { onMovieItemClicked(item) }
+            imageMovieCover.setOnClickListener { onMovieItemClicked(item) }
             buttonFavorite.setOnClickListener { onFavoriteClicked(item) }
         }
     }

@@ -5,9 +5,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutDetailsBinding
+import com.jmrsa.moviecrudapp.presentation.shared.adapters.genre_list.GenreListAdapter
 import com.jmrsa.moviecrudapp.presentation.shared.dialogs.ModalBottomSheetDialogFragment
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -45,6 +48,13 @@ class DetailsBottomSheetFragment : ModalBottomSheetDialogFragment<LayoutDetailsB
                 tvTitleYear.text = movieDetails.formattedTitle
                 tvTimeInfo.text = movieDetails.formattedReleaseDate
                 ratingMovieRatingDetails.rating = movieDetails.formattedRating
+
+                rvGenres.apply {
+                    layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                    adapter = GenreListAdapter(
+                        genreList = movieDetails.movie.genres?.toList().orEmpty()
+                    )
+                }
 
                 tvBudget.text = movieDetails.formattedBudget
                 tvRevenue.text = movieDetails.formattedRevenue

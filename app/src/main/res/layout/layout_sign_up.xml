@@ -9,178 +9,186 @@
             type="com.jmrsa.moviecrudapp.presentation.fragments.signup.SignUpViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
+        android:id="@+id/scrollViewSignUp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
 
-        <ImageView
-            android:id="@+id/imageHeader"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:contentDescription="@string/movie_crud_img_header_cd"
-            android:scaleType="centerCrop"
-            android:src="@drawable/header_sign_up"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="116dp"
-            android:layout_height="116dp"
-            app:cardCornerRadius="200dp"
-            app:cardElevation="5dp"
-            app:layout_constraintBottom_toTopOf="@+id/inputLayoutConfirm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imagePicker"
-                android:background="@drawable/circular_picture"
+                android:id="@+id/imageHeader"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@string/movie_crud_img_header_cd"
+                android:scaleType="centerCrop"
+                android:src="@drawable/header_sign_up"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="116dp"
+                android:layout_height="116dp"
+                android:layout_marginBottom="25dp"
+                app:cardCornerRadius="200dp"
+                app:cardElevation="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/imagePicker"
+                    android:background="@drawable/circular_picture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/placeholder_image_picker"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/movie_crud_img_picker_cd"
+                    android:scaleType="centerInside" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="12dp"
+                android:background="@drawable/rounded_corner_input"
+                android:elevation="5dp"
+                android:padding="10dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:errorInfo="@{viewmodel.viewState.nameError}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageHeader">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputName"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/movie_crud_name_input"
+                    android:paddingHorizontal="10dp"
+                    android:textColorHint="@color/black_alpha40"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="12dp"
+                android:background="@drawable/rounded_corner_input"
+                android:elevation="5dp"
+                android:padding="10dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:errorInfo="@{viewmodel.viewState.emailError}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/movie_crud_email_input"
+                    android:paddingHorizontal="10dp"
+                    android:textColorHint="@color/black_alpha40"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="12dp"
+                android:background="@drawable/rounded_corner_input"
+                android:elevation="5dp"
+                android:padding="10dp"
+                app:endIconMinSize="0dp"
+                app:endIconMode="password_toggle"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:errorInfo="@{viewmodel.viewState.passwordError}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/movie_crud_password_input"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="10dp"
+                    android:textColorHint="@color/black_alpha40"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutConfirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="12dp"
+                android:background="@drawable/rounded_corner_input"
+                android:elevation="5dp"
+                android:padding="10dp"
+                app:endIconMode="password_toggle"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:errorInfo="@{viewmodel.viewState.confirmError}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputConfirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/movie_crud_confirm_input"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="10dp"
+                    android:textColorHint="@color/black_alpha40"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonSignUp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/placeholder_image_picker"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/movie_crud_img_picker_cd"
-                android:scaleType="centerInside" />
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="12dp"
+                android:background="@drawable/rounded_corner_button"
+                android:paddingVertical="12dp"
+                android:text="@string/movie_crud_sign_up_button"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputLayoutConfirm" />
 
-        </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="12dp"
-            android:background="@drawable/rounded_corner_input"
-            android:elevation="5dp"
-            android:padding="10dp"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:errorInfo="@{viewmodel.viewState.nameError}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageHeader">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputName"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="@color/transparent"
-                android:hint="@string/movie_crud_name_input"
-                android:paddingHorizontal="10dp"
-                android:textColorHint="@color/black_alpha40"
-                android:textSize="14sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="12dp"
-            android:background="@drawable/rounded_corner_input"
-            android:elevation="5dp"
-            android:padding="10dp"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:errorInfo="@{viewmodel.viewState.emailError}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutName">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputEmail"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="@color/transparent"
-                android:hint="@string/movie_crud_email_input"
-                android:paddingHorizontal="10dp"
-                android:textColorHint="@color/black_alpha40"
-                android:textSize="14sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutPassword"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="12dp"
-            android:background="@drawable/rounded_corner_input"
-            android:elevation="5dp"
-            android:padding="10dp"
-            app:endIconMinSize="0dp"
-            app:endIconMode="password_toggle"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:errorInfo="@{viewmodel.viewState.passwordError}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutEmail">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputPassword"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="@color/transparent"
-                android:hint="@string/movie_crud_password_input"
-                android:inputType="textPassword"
-                android:paddingHorizontal="10dp"
-                android:textColorHint="@color/black_alpha40"
-                android:textSize="14sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutConfirm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="12dp"
-            android:background="@drawable/rounded_corner_input"
-            android:elevation="5dp"
-            android:padding="10dp"
-            app:endIconMode="password_toggle"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:errorInfo="@{viewmodel.viewState.confirmError}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutPassword">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/inputConfirm"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="@color/transparent"
-                android:hint="@string/movie_crud_confirm_input"
-                android:inputType="textPassword"
-                android:paddingHorizontal="10dp"
-                android:textColorHint="@color/black_alpha40"
-                android:textSize="14sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/buttonSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginVertical="12dp"
-            android:background="@drawable/rounded_corner_button"
-            android:paddingVertical="12dp"
-            android:text="@string/movie_crud_sign_up_button"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/inputLayoutConfirm" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
