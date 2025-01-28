@@ -33,18 +33,13 @@ class HomeViewModel(
 
     init {
         launchWithProgress {
-            val user = withContext(Dispatchers.IO) {
-                getCurrentUserUseCase.currentUserEmail()?.let { email ->
-                    getCurrentUserUseCase.retrieveCurrentUserFromDatabase(email).toAppUser()
-                }
-            }
+            val user = withContext(Dispatchers.IO) { fetchUser() }
+            if (user.email.isEmpty()) return@launchWithProgress
 
-            val favorites = user?.let { fetchFavorites(it) } ?: mutableListOf()
+            val favorites = fetchFavorites(user)
 
             val picks = fetchStaffPicks().map { pick ->
-                pick.copy(
-                    isFavorited = favorites.map { it.id }.contains(pick.id)
-                )
+                pick.copy(isFavorited = labelPicksIfFavorited(pick, favorites))
             }
 
             _viewState.update {
@@ -57,6 +52,12 @@ class HomeViewModel(
         }
     }
 
+    private suspend fun fetchUser(): AppUser {
+        return getCurrentUserUseCase.currentUserEmail()?.let { email ->
+            getCurrentUserUseCase.retrieveCurrentUserFromDatabase(email).toAppUser()
+        } ?: AppUser("", "")
+    }
+
     private suspend fun fetchFavorites(user: AppUser): MutableList<AppMovie> {
         val userFavorites = getUserFavoritesUseCase.getUserFavorites(user.email).firstOrNull()
         return userFavorites?.firstOrNull()?.favorites?.map { it.toAppMovie() }?.toMutableList()
@@ -67,6 +68,15 @@ class HomeViewModel(
         return getMoviesUseCase.fetchStaffPicks().map { movie -> movie.toAppMovie() }
     }
 
+    private fun labelPicksIfFavorited(pick: AppMovie, favorites: MutableList<AppMovie>): Boolean {
+        return favorites.map { it.id }.contains(pick.id)
+    }
+
+    private fun updateMovieFavorites(appMovie: AppMovie, movieFavorites: MutableList<AppMovie>?) : List<AppMovie> {
+        return if (appMovie.isFavorited.not())
+            movieFavorites?.plus(appMovie).orEmpty()
+        else movieFavorites?.filter { movie -> movie.id != appMovie.id }.orEmpty()
+    }
 
     fun onSearchClicked() {
         launchIn {
@@ -80,9 +90,7 @@ class HomeViewModel(
         movieFavorites: MutableList<AppMovie>?
     ) {
         launchIn {
-            val newMovieFavorites = if (appMovie.isFavorited.not())
-                movieFavorites?.plus(appMovie).orEmpty()
-            else movieFavorites?.filter { movie -> movie.id != appMovie.id }.orEmpty()
+            val newMovieFavorites = updateMovieFavorites(appMovie, movieFavorites)
 
             appUser?.email?.let { email ->
                 updateUserFavoritesUseCase.updateUserFavorites(
@@ -94,9 +102,7 @@ class HomeViewModel(
                             .toMutableList()
 
                     val picks = _viewState.value?.staffPicks?.map { pick ->
-                        pick.copy(
-                            isFavorited = favorites.map { it.id }.contains(pick.id)
-                        )
+                        pick.copy(isFavorited = labelPicksIfFavorited(pick, favorites))
                     }
 
                     _viewState.update {
