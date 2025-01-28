@@ -11,6 +11,8 @@
     <!-- Custom colors -->
     <color name="black_alpha40">#66000000</color>
     <color name="darkgray_alpha5">#141C250D</color>
+    <color name="darkgray_alpha40">#661C251A</color>
     <color name="transparent">#00000000</color>
+    <color name="golden_yellow">#FFFD9E02</color>
 
 </resources>

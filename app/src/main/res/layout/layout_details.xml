@@ -85,6 +85,8 @@
                 <RatingBar
                     android:id="@+id/ratingMovieRatingDetails"
                     style="?android:attr/ratingBarStyleSmall"
+                    android:progressTint="@color/golden_yellow"
+                    android:progressBackgroundTint="@color/darkgray_alpha40"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

@@ -44,8 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textSize="12sp"
-                android:text="2008" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/labelMovieTitle"
@@ -55,12 +54,13 @@
                 android:textSize="16sp"
                 android:maxLines="1"
                 android:ellipsize="end"
-                android:textColor="@color/black"
-                android:text="The Dark Knight" />
+                android:textColor="@color/black" />
 
             <RatingBar
                 android:id="@+id/labelMovieRating"
                 style="?android:attr/ratingBarStyleSmall"
+                android:progressTint="@color/golden_yellow"
+                android:progressBackgroundTint="@color/darkgray_alpha40"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
