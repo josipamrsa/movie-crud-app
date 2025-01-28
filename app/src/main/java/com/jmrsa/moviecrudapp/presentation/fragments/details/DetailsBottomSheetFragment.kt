@@ -64,17 +64,18 @@ class DetailsBottomSheetFragment : ModalBottomSheetDialogFragment<LayoutDetailsB
         lifecycleScope.launch {
             detailsViewModel.effect.collectLatest { update ->
                 when (update) {
-                    DetailsContract.Effect.NavigateToHome -> navigateToHome()
+                    DetailsContract.Effect.NavigateToHome -> navigateBack()
                 }
             }
         }
     }
 
-    private fun navigateToHome() {
-        findNavController().navigate(R.id.action_detailsBottomSheet_to_homeFragment)
+    private fun navigateBack() {
+        val backStackEntry = findNavController().previousBackStackEntry
+
+        backStackEntry?.destination?.id?.let {
+            findNavController().navigate(it)
+        }
     }
 
-    companion object {
-        const val BOTTOM_SHEET_TAG = "ModalBottomSheetDetails"
-    }
 }

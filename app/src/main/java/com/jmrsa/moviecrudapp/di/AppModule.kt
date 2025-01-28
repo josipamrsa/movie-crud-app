@@ -22,6 +22,7 @@ import com.jmrsa.moviecrudapp.domain.use_case.UpdateUserFavoritesUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.UpdateUserFavoritesUseCaseImpl
 import com.jmrsa.moviecrudapp.presentation.fragments.details.DetailsViewModel
 import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeViewModel
+import com.jmrsa.moviecrudapp.presentation.fragments.search.SearchViewModel
 import com.jmrsa.moviecrudapp.presentation.fragments.signup.SignUpViewModel
 import com.jmrsa.moviecrudapp.presentation.models.AppMovie
 import org.koin.android.ext.koin.androidContext
@@ -63,4 +64,5 @@ val appModule = module {
     viewModel { SignUpViewModel(get(), get()) }
     viewModel { HomeViewModel(get(), get(), get(), get()) }
     viewModel { (appMovie: AppMovie) -> DetailsViewModel(appMovie, get(), get(), get()) }
+    viewModel { SearchViewModel(get(), get(), get(), get()) }
 }

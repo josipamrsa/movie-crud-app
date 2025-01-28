@@ -7,47 +7,47 @@
         android:layout_height="match_parent"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="35dp"
-        android:clipToPadding="false"
-        android:clipChildren="false">
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
         <ImageButton
             android:id="@+id/buttonBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_back"
             android:background="@color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:src="@drawable/ic_arrow_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/labelAllMovies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="All Movies"
-            android:textStyle="bold"
-            android:textSize="24sp"
             android:textColor="@color/black"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutSearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="20dp"
             android:background="@drawable/rounded_corner_input"
             android:elevation="5dp"
             android:padding="7dp"
-            android:layout_marginVertical="20dp"
-            android:layout_marginHorizontal="5dp"
             android:textColorHint="@color/black_alpha40"
-            app:startIconDrawable="@drawable/ic_search"
-            app:hintTextColor="@color/black_alpha40"
             app:hintAnimationEnabled="false"
             app:hintEnabled="false"
+            app:hintTextColor="@color/black_alpha40"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelAllMovies"
-            app:layout_constraintStart_toStartOf="parent">
+            app:startIconDrawable="@drawable/ic_search">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputSearch"
@@ -59,12 +59,23 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSearchResults"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/inputLayoutSearch" />
+        <LinearLayout
+            android:id="@+id/sectionAllMovies"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputLayoutSearch">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSearchResults"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp" />
+
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

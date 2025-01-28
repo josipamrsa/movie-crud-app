@@ -107,5 +107,4 @@ class DetailsViewModel(
             _effect.trySend(DetailsContract.Effect.NavigateToHome)
         }
     }
-
 }
