@@ -76,8 +76,6 @@ class HomeFragment : BaseFragment<LayoutHomeBinding>() {
     }
 
     private fun navigateToMovieDetails(appMovie: AppMovie) {
-        //val modal = DetailsBottomSheet()
-        //parentFragmentManager.let { modal.show(it, DetailsBottomSheet.BOTTOM_SHEET_TAG) }
         val action = HomeFragmentDirections.actionHomeFragmentToDetailsBottomSheet(movieDetails = appMovie)
         findNavController().navigate(action)
     }

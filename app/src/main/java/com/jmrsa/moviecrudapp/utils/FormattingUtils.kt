@@ -1,16 +1,8 @@
 package com.jmrsa.moviecrudapp.utils
 
-import androidx.compose.ui.text.capitalize
-import androidx.compose.ui.text.substring
-import androidx.compose.ui.text.toUpperCase
 import java.text.DecimalFormat
-import java.text.NumberFormat
 import java.text.SimpleDateFormat
-import java.time.OffsetDateTime
-import java.util.Currency
 import java.util.Locale
-import java.util.concurrent.TimeUnit
-import kotlin.math.roundToInt
 
 fun formatMinutesToHoursAndMinutes(timeInMinutes: Int): String {
     val hours = timeInMinutes / 60

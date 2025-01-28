@@ -2,10 +2,8 @@ package com.jmrsa.moviecrudapp.domain.use_case
 
 import com.jmrsa.moviecrudapp.domain.base.BaseUseCase
 import com.jmrsa.moviecrudapp.domain.model.Movie
-import com.jmrsa.moviecrudapp.domain.model.relations.user_favorites.UserWithMovies
 import com.jmrsa.moviecrudapp.domain.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 
 interface UpdateUserFavoritesUseCase {

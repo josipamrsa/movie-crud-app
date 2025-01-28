@@ -3,14 +3,16 @@ package com.jmrsa.moviecrudapp.presentation.fragments.search
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutSearchBinding
 import com.jmrsa.moviecrudapp.presentation.fragments.base.BaseFragment
-import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeFragmentDirections
 import com.jmrsa.moviecrudapp.presentation.models.AppMovie
 import com.jmrsa.moviecrudapp.presentation.shared.adapters.movie_list.MovieListAdapter
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -47,16 +49,24 @@ class SearchFragment : BaseFragment<LayoutSearchBinding>() {
 
         binding.apply {
             buttonBack.setOnClickListener {
-                navigateBack()
+                searchViewModel.onGoBackHome()
             }
 
             inputSearch.addTextChangedListener { editable ->
                 searchViewModel.onSearchValueChanged(editable.toString())
             }
         }
+
+        lifecycleScope.launch {
+            searchViewModel.effect.collectLatest { update ->
+                when (update) {
+                    SearchContract.Effect.NavigateToHome -> navigateToHome()
+                }
+            }
+        }
     }
 
-    private fun navigateBack() {
+    private fun navigateToHome() {
         findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
     }
 

@@ -8,7 +8,6 @@ import com.jmrsa.moviecrudapp.utils.formatDate
 import com.jmrsa.moviecrudapp.utils.formatFullLanguageName
 import com.jmrsa.moviecrudapp.utils.formatMinutesToHoursAndMinutes
 import com.jmrsa.moviecrudapp.utils.formatRating
-import kotlinx.coroutines.flow.Flow
 
 interface DetailsContract {
     data class State(

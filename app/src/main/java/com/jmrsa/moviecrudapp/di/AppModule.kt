@@ -25,8 +25,6 @@ import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeViewModel
 import com.jmrsa.moviecrudapp.presentation.fragments.search.SearchViewModel
 import com.jmrsa.moviecrudapp.presentation.fragments.signup.SignUpViewModel
 import com.jmrsa.moviecrudapp.presentation.models.AppMovie
-import org.koin.android.ext.koin.androidContext
-import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.bind
 import org.koin.dsl.module

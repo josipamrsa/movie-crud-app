@@ -78,6 +78,12 @@ class SearchViewModel(
         else movieFavorites?.filter { movie -> movie.id != appMovie.id }.orEmpty()
     }
 
+    fun onGoBackHome() {
+        launchIn {
+            _effect.trySend(SearchContract.Effect.NavigateToHome)
+        }
+    }
+
     fun onSearchValueChanged(searchQuery: String) {
         launchIn {
             val updatedMovieList = fetchAllMovies()

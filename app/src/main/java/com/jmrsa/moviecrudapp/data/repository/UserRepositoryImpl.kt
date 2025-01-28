@@ -1,6 +1,5 @@
 package com.jmrsa.moviecrudapp.data.repository
 
-import android.util.Log
 import com.jmrsa.moviecrudapp.data.db.UserDao
 import com.jmrsa.moviecrudapp.domain.model.Movie
 import com.jmrsa.moviecrudapp.domain.model.User
@@ -8,7 +7,6 @@ import com.jmrsa.moviecrudapp.domain.model.relations.user_favorites.UserMovieCro
 import com.jmrsa.moviecrudapp.domain.model.relations.user_favorites.UserWithMovies
 import com.jmrsa.moviecrudapp.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collectLatest
 
 class UserRepositoryImpl(
     private val userDao: UserDao

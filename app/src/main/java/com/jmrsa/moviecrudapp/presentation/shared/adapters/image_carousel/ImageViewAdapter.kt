@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jmrsa.moviecrudapp.databinding.ItemCarouselBinding
-import com.jmrsa.moviecrudapp.domain.model.Movie
 import com.jmrsa.moviecrudapp.presentation.models.AppMovie
 
 class ImageViewAdapter(

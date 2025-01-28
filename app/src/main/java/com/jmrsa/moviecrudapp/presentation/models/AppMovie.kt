@@ -1,7 +1,6 @@
 package com.jmrsa.moviecrudapp.presentation.models
 
 import android.os.Parcelable
-import androidx.room.PrimaryKey
 import com.jmrsa.moviecrudapp.data.remote.dto.MovieDto
 import com.jmrsa.moviecrudapp.domain.model.Movie
 import kotlinx.parcelize.Parcelize

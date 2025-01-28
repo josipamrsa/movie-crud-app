@@ -3,34 +3,10 @@ package com.jmrsa.moviecrudapp.data.db.utils
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.jmrsa.moviecrudapp.domain.model.Director
 import com.jmrsa.moviecrudapp.domain.model.Movie
 import com.jmrsa.moviecrudapp.domain.model.User
-import com.jmrsa.moviecrudapp.domain.model.helpers.CastList
-import com.jmrsa.moviecrudapp.domain.model.helpers.DirectorInfo
 
 class DataConverter {
-    /*@TypeConverter
-    fun fromDirector(director: DirectorInfo?): String {
-        return Gson().toJson(director)
-    }
-
-    @TypeConverter
-    fun toDirector(value: String?): DirectorInfo? {
-        return if (value.isNullOrEmpty()) null else Gson().fromJson(value, DirectorInfo::class.java)
-    }
-
-    @TypeConverter
-    fun fromCastList(castList: CastList): String? {
-        return Gson().toJson(castList)
-    }
-
-    @TypeConverter
-    fun toCastList(value: String?): CastList? {
-        return if (value == null) null
-        else Gson().fromJson(value, CastList::class.java)
-    }*/
-
     @TypeConverter
     fun fromMovieList(movieList: MutableList<Movie>?): String? {
         return Gson().toJson(movieList)

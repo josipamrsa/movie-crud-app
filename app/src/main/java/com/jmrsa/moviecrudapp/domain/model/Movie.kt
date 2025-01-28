@@ -2,12 +2,6 @@ package com.jmrsa.moviecrudapp.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
-import com.jmrsa.moviecrudapp.data.db.utils.DataConverter
-import com.jmrsa.moviecrudapp.data.remote.dto.Cast
-import com.jmrsa.moviecrudapp.data.remote.dto.Director
-import com.jmrsa.moviecrudapp.domain.model.helpers.CastList
-import com.jmrsa.moviecrudapp.domain.model.helpers.DirectorInfo
 
 @Entity(
     tableName = "movies"

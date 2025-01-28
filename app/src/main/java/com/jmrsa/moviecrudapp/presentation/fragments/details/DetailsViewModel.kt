@@ -6,7 +6,6 @@ import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.GetUserFavoritesUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.UpdateUserFavoritesUseCase
 import com.jmrsa.moviecrudapp.presentation.fragments.base.BaseViewModel
-import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeContract
 import com.jmrsa.moviecrudapp.presentation.models.AppMovie
 import com.jmrsa.moviecrudapp.presentation.models.AppUser
 import com.jmrsa.moviecrudapp.presentation.models.toAppMovie

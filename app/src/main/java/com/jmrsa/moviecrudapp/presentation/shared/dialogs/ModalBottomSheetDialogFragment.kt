@@ -22,8 +22,6 @@ abstract class ModalBottomSheetDialogFragment<VB : ViewDataBinding> : BottomShee
 
     abstract fun initView(binding: VB)
 
-    //abstract fun navigateBack()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,20 +54,6 @@ abstract class ModalBottomSheetDialogFragment<VB : ViewDataBinding> : BottomShee
                 sheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
                 sheetBehavior.skipCollapsed = true
                 sheetBehavior.isDraggable = false
-
-                /*sheetBehavior.addBottomSheetCallback(object :
-                    BottomSheetBehavior.BottomSheetCallback() {
-                    override fun onStateChanged(bottomSheet: View, newState: Int) {
-                        if (newState == BottomSheetBehavior.STATE_COLLAPSED || newState == BottomSheetBehavior.STATE_HIDDEN) {
-                            navigateBack()
-                        }
-                    }
-
-                    override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                        if (slideOffset < 0)
-                            navigateBack()
-                    }
-                })*/
             }
         }
 

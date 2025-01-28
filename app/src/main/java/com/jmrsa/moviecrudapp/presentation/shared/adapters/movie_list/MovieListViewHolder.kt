@@ -1,6 +1,5 @@
 package com.jmrsa.moviecrudapp.presentation.shared.adapters.movie_list
 
-import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.jmrsa.moviecrudapp.R
