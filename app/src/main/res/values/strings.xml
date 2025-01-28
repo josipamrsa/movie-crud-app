@@ -38,6 +38,10 @@
     <string name="movie_crud_search_icon_cd">MovieCRUDApp Image Search Icon</string>
     <string name="movie_crud_movie_cover_cd">MovieCRUDApp User Favorited Movie Cover</string>
     <string name="movie_crud_movie_cover_small_cd">MovieCRUDApp Movie Cover</string>
+    <string name="movie_crud_label_favorite_button_cd">Favorite movie button</string>
+    <string name="movie_crud_label_close_button_cd">Close modal dialog button</string>
+    <string name="movie_crud_label_back_button_cd">Go back button</string>
+    <string name="movie_crud_all_movies_label">All Movies</string>
 
 
 </resources>

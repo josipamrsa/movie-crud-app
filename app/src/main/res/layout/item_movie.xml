@@ -13,7 +13,7 @@
             android:layout_width="60dp"
             android:layout_height="89dp"
             app:cardCornerRadius="8dp"
-            android:layout_marginEnd="25dp"
+            android:layout_marginEnd="26dp"
             app:cardElevation="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -59,6 +59,7 @@
             <RatingBar
                 android:id="@+id/labelMovieRating"
                 style="?android:attr/ratingBarStyleSmall"
+                android:layout_marginTop="5dp"
                 android:progressTint="@color/golden_yellow"
                 android:progressBackgroundTint="@color/darkgray_alpha40"
                 android:layout_width="wrap_content"

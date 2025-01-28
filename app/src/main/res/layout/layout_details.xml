@@ -36,6 +36,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginVertical="25dp"
                     android:background="@color/transparent"
+                    android:contentDescription="@string/movie_crud_label_favorite_button_cd"
                     android:src="@drawable/ic_favorited_outline" />
 
                 <ImageButton
@@ -45,6 +46,7 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginVertical="25dp"
                     android:background="@color/transparent"
+                    android:contentDescription="@string/movie_crud_label_close_button_cd"
                     android:src="@drawable/ic_close" />
 
             </LinearLayout>
@@ -75,7 +77,9 @@
                 android:id="@+id/sectionBasicMovieInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginHorizontal="35dp"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +98,7 @@
                     android:id="@+id/tvTimeInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="12dp"
                     android:textColor="@color/black_alpha40"
                     android:textSize="14sp" />
 
@@ -102,7 +106,7 @@
                     android:id="@+id/tvTitleYear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="12dp"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textAlignment="center"
@@ -114,7 +118,7 @@
                     android:id="@+id/rvGenres"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="12dp"/>
 
             </LinearLayout>
 
@@ -142,7 +146,7 @@
                     android:id="@+id/tvOverview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="16dp"
                     android:text="@{viewmodel.viewState.movie.overview}"
                     android:textColor="@color/black_alpha40"
                     android:textSize="16sp" />
@@ -155,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="15dp"
                 android:text="@string/movie_crud_label_key_facts"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -169,7 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="7dp"
+                android:layout_marginEnd="6dp"
                 android:background="@drawable/rounded_corner_card"
                 android:padding="16dp"
                 app:layout_constraintEnd_toStartOf="@id/cardRevenue"
@@ -191,7 +195,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="start"
-                    android:text="$1,000.000"
                     android:textSize="16sp" />
 
             </FrameLayout>
@@ -200,7 +203,7 @@
                 android:id="@+id/cardRevenue"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="6dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/rounded_corner_card"
@@ -224,7 +227,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="start"
-                    android:text="$14,000.000"
                     android:textSize="16sp" />
 
             </FrameLayout>
@@ -234,8 +236,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="7dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="6dp"
                 android:background="@drawable/rounded_corner_card"
                 android:padding="16dp"
                 app:layout_constraintEnd_toStartOf="@+id/cardRating"
@@ -267,8 +269,8 @@
                 android:id="@+id/cardRating"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="12dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/rounded_corner_card"
                 android:padding="16dp"
