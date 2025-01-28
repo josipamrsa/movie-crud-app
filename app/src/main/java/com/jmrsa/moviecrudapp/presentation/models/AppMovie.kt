@@ -23,7 +23,7 @@ data class AppMovie(
     val isFavorited: Boolean = false
 ) : Parcelable
 
-fun Movie.toAppMovie() = AppMovie(
+fun Movie.toAppMovie(isFavorited: Boolean = false) = AppMovie(
     budget = budget,
     genres = genres,
     id = id,
@@ -35,10 +35,11 @@ fun Movie.toAppMovie() = AppMovie(
     revenue = revenue,
     reviews = reviews,
     runtime = runtime,
-    title = title
+    title = title,
+    isFavorited = isFavorited
 )
 
-fun MovieDto.toAppMovie() = AppMovie(
+fun MovieDto.toAppMovie(isFavorited: Boolean = false) = AppMovie(
     budget = budget,
     genres = genres?.toMutableList(),
     id = id,
@@ -50,7 +51,8 @@ fun MovieDto.toAppMovie() = AppMovie(
     revenue = revenue,
     reviews = reviews,
     runtime = runtime,
-    title = title
+    title = title,
+    isFavorited = isFavorited
 )
 
 fun AppMovie.toMovie() = Movie(

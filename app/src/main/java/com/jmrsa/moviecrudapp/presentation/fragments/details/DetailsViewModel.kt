@@ -1,12 +1,12 @@
-package com.jmrsa.moviecrudapp.presentation.fragments.home
+package com.jmrsa.moviecrudapp.presentation.fragments.details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.jmrsa.moviecrudapp.domain.use_case.GetCurrentUserUseCase
-import com.jmrsa.moviecrudapp.domain.use_case.GetMoviesUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.GetUserFavoritesUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.UpdateUserFavoritesUseCase
 import com.jmrsa.moviecrudapp.presentation.fragments.base.BaseViewModel
+import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeContract
 import com.jmrsa.moviecrudapp.presentation.models.AppMovie
 import com.jmrsa.moviecrudapp.presentation.models.AppUser
 import com.jmrsa.moviecrudapp.presentation.models.toAppMovie
@@ -19,16 +19,16 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.withContext
 
-class HomeViewModel(
+class DetailsViewModel(
+    movieDetails: AppMovie,
     private val getCurrentUserUseCase: GetCurrentUserUseCase,
     private val getUserFavoritesUseCase: GetUserFavoritesUseCase,
-    private val getMoviesUseCase: GetMoviesUseCase,
     private val updateUserFavoritesUseCase: UpdateUserFavoritesUseCase
 ) : BaseViewModel() {
-    private val _viewState = MutableLiveData(HomeContract.State())
-    val viewState: LiveData<HomeContract.State> = _viewState
+    private val _viewState = MutableLiveData(DetailsContract.State(movieDetails))
+    val viewState: LiveData<DetailsContract.State> = _viewState
 
-    private val _effect: Channel<HomeContract.Effect> = Channel(Channel.BUFFERED)
+    private val _effect: Channel<DetailsContract.Effect> = Channel(Channel.BUFFERED)
     val effect = _effect.receiveAsFlow()
 
     init {
@@ -38,15 +38,11 @@ class HomeViewModel(
 
             val favorites = fetchFavorites(user)
 
-            val picks = fetchStaffPicks().map { pick ->
-                pick.copy(isFavorited = labelPicksIfFavorited(pick, favorites))
-            }
 
             _viewState.update {
                 it.copy(
                     user = user,
-                    userFavorites = favorites,
-                    staffPicks = picks
+                    userFavorites = favorites
                 )
             }
         }
@@ -64,24 +60,13 @@ class HomeViewModel(
             ?: mutableListOf()
     }
 
-    private suspend fun fetchStaffPicks(): List<AppMovie> {
-        return getMoviesUseCase.fetchStaffPicks().map { movie -> movie.toAppMovie() }
-    }
-
-    private fun labelPicksIfFavorited(pick: AppMovie, favorites: MutableList<AppMovie>): Boolean {
-        return favorites.map { it.id }.contains(pick.id)
-    }
-
-    private fun updateMovieFavorites(appMovie: AppMovie, movieFavorites: MutableList<AppMovie>?) : List<AppMovie> {
+    private fun updateMovieFavorites(
+        appMovie: AppMovie,
+        movieFavorites: MutableList<AppMovie>?
+    ): List<AppMovie> {
         return if (appMovie.isFavorited.not())
             movieFavorites?.plus(appMovie).orEmpty()
         else movieFavorites?.filter { movie -> movie.id != appMovie.id }.orEmpty()
-    }
-
-    fun onSearchClicked() {
-        launchIn {
-            _effect.trySend(HomeContract.Effect.NavigateToSearch)
-        }
     }
 
     fun onFavoriteClicked(
@@ -101,18 +86,26 @@ class HomeViewModel(
                         userFavorites.first().favorites.map { movie -> movie.toAppMovie(isFavorited = true) }
                             .toMutableList()
 
-                    val picks = _viewState.value?.staffPicks?.map { pick ->
-                        pick.copy(isFavorited = labelPicksIfFavorited(pick, favorites))
-                    }
-
                     _viewState.update {
+                        val updatedMovie = it.movie
+                            .copy(isFavorited = favorites
+                                .map { fave -> fave.id }
+                                .contains(appMovie.id))
+
                         it.copy(
+                            movie = updatedMovie,
                             userFavorites = favorites,
-                            staffPicks = picks
                         )
                     }
                 }
             }
         }
     }
+
+    fun onCloseClicked() {
+        launchIn {
+            _effect.trySend(DetailsContract.Effect.NavigateToHome)
+        }
+    }
+
 }

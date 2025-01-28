@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.jmrsa.moviecrudapp.presentation.fragments.details.DetailsViewModel" />
+    </data>
+
     <ScrollView
         android:id="@+id/scrollViewDetails"
         android:layout_width="match_parent"
@@ -76,7 +83,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardMovieCoverLarge">
 
                 <RatingBar
-                    android:id="@+id/labelMovieRatingDetails"
+                    android:id="@+id/ratingMovieRatingDetails"
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -86,7 +93,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="29.07.2010 • 2h 28m"
                     android:textColor="@color/black_alpha40"
                     android:textSize="14sp" />
 
@@ -95,9 +101,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Inception (2010)"
                     android:textColor="@color/black"
                     android:textSize="24sp"
+                    android:textAlignment="center"
+                    android:maxLines="2"
+                    android:ellipsize="end"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -127,7 +135,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum."
+                    android:text="@{viewmodel.viewState.movie.overview}"
                     android:textColor="@color/black_alpha40"
                     android:textSize="16sp" />
 
@@ -152,8 +160,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="7dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="7dp"
                 android:background="@drawable/rounded_corner_card"
                 android:padding="16dp"
                 app:layout_constraintEnd_toStartOf="@id/cardRevenue"
@@ -185,8 +193,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/rounded_corner_card"
                 android:padding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -218,8 +226,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginEnd="7dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="7dp"
                 android:background="@drawable/rounded_corner_card"
                 android:padding="16dp"
                 app:layout_constraintEnd_toStartOf="@+id/cardRating"
@@ -230,11 +238,11 @@
                     android:id="@+id/labelLanguage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="start"
+                    android:maxLines="1"
                     android:text="@string/movie_crud_label_language"
                     android:textSize="12sp"
-                    android:maxLines="1"
-                    android:ellipsize="end"
                     android:textStyle="bold" />
 
                 <TextView
@@ -243,7 +251,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="start"
-                    android:text="English"
                     android:textSize="16sp" />
 
             </FrameLayout>
@@ -253,8 +260,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/rounded_corner_card"
                 android:padding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -276,7 +283,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:gravity="start"
-                    android:text="3.75"
                     android:textSize="16sp" />
 
             </FrameLayout>
