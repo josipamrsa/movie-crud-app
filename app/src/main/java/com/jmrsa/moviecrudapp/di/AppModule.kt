@@ -18,6 +18,8 @@ import com.jmrsa.moviecrudapp.domain.use_case.GetUserFavoritesUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.GetUserFavoritesUseCaseImpl
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCase
 import com.jmrsa.moviecrudapp.domain.use_case.RegisterUserUseCaseImpl
+import com.jmrsa.moviecrudapp.domain.use_case.UpdateUserFavoritesUseCase
+import com.jmrsa.moviecrudapp.domain.use_case.UpdateUserFavoritesUseCaseImpl
 import com.jmrsa.moviecrudapp.presentation.fragments.home.HomeViewModel
 import com.jmrsa.moviecrudapp.presentation.fragments.signup.SignUpViewModel
 import org.koin.android.ext.koin.androidContext
@@ -54,7 +56,9 @@ val appModule = module {
     factory<GetCurrentUserUseCase> { GetCurrentUserUseCaseImpl(get(), get()) }
     factory<GetMoviesUseCase> { GetMoviesUseCaseImpl(get()) }
     factory<GetUserFavoritesUseCase> { GetUserFavoritesUseCaseImpl(get()) }
+    factory<UpdateUserFavoritesUseCase> { UpdateUserFavoritesUseCaseImpl(get()) }
+
 
     viewModel { SignUpViewModel(get(), get()) }
-    viewModel { HomeViewModel(get(), get(), get()) }
+    viewModel { HomeViewModel(get(), get(), get(), get()) }
 }

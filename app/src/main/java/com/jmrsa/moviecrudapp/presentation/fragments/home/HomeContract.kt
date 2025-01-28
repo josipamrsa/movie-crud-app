@@ -7,12 +7,11 @@ import com.jmrsa.moviecrudapp.presentation.models.AppUser
 interface HomeContract {
     data class State(
         val user: AppUser? = null,
-        val userFavorites: List<AppMovie>? = mutableListOf(),
+        val userFavorites: MutableList<AppMovie>? = mutableListOf(),
         val staffPicks: List<AppMovie>? = mutableListOf()
     ) : BaseViewState
 
     sealed interface Effect {
-        data object OpenDetails: Effect
         data object NavigateToSearch: Effect
     }
 }

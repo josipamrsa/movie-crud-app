@@ -45,7 +45,13 @@ class HomeFragment : BaseFragment<LayoutHomeBinding>() {
                     adapter = MovieListAdapter(
                         movieData.staffPicks.orEmpty(),
                         ::navigateToMovieDetails
-                    ) { appMovie -> {} }
+                    ) { appMovie ->
+                        homeViewModel.onFavoriteClicked(
+                            movieData.user,
+                            appMovie,
+                            movieData.userFavorites
+                        )
+                    }
                 }
             }
         }
@@ -60,7 +66,6 @@ class HomeFragment : BaseFragment<LayoutHomeBinding>() {
             homeViewModel.effect.collectLatest { update ->
                 when (update) {
                     HomeContract.Effect.NavigateToSearch -> navigateToSearch()
-                    HomeContract.Effect.OpenDetails -> TODO()
                 }
             }
         }
@@ -74,5 +79,4 @@ class HomeFragment : BaseFragment<LayoutHomeBinding>() {
         val modal = DetailsBottomSheet()
         parentFragmentManager.let { modal.show(it, DetailsBottomSheet.BOTTOM_SHEET_TAG) }
     }
-
 }

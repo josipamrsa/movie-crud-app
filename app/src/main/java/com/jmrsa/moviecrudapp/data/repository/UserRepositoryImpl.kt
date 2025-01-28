@@ -4,9 +4,11 @@ import android.util.Log
 import com.jmrsa.moviecrudapp.data.db.UserDao
 import com.jmrsa.moviecrudapp.domain.model.Movie
 import com.jmrsa.moviecrudapp.domain.model.User
+import com.jmrsa.moviecrudapp.domain.model.relations.user_favorites.UserMovieCrossRef
 import com.jmrsa.moviecrudapp.domain.model.relations.user_favorites.UserWithMovies
 import com.jmrsa.moviecrudapp.domain.repository.UserRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
 
 class UserRepositoryImpl(
     private val userDao: UserDao
@@ -29,25 +31,16 @@ class UserRepositoryImpl(
         return userDao.getUserFavorites(email)
     }
 
+    override suspend fun updateUserFavoriteMovies(userId: Int, newMovie: Movie, movieFavorites: List<Movie>) {
+        userDao.insertFavoritedMovie(newMovie)
 
-    override suspend fun updateUserFavoriteMovies(userId: Int, movieId: Int) {
-        TODO("Not yet implemented")
+        val oldFavorites = userDao.getCrossRefsForUser(userId)
+        userDao.deleteUserMovieCrossRefs(oldFavorites)
 
-        /*
-
-        // Fetch existing cross-references for the user
-        val oldFavorites = getCrossRefsForUser(userId)
-
-        // Delete old cross-references
-        deleteUserMovieCrossRefs(oldFavorites)
-
-        // Insert new cross-references
-        val newCrossRefs = newFavorites.map { movie ->
-            UserMovieCrossRef(userId = userId, movieId = movie.id)
+        val newCrossRefs = movieFavorites.map { movie ->
+            UserMovieCrossRef(userId = userId, id = movie.id)
         }
 
-        insertUserMovieCrossRefs(newCrossRefs)
-
-        */
+        userDao.insertUserMovieCrossRefs(newCrossRefs)
     }
 }

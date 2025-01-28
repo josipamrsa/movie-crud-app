@@ -9,5 +9,5 @@ interface UserRepository {
     suspend fun registerUser(name: String, email: String, password: String) : Long
     suspend fun getCurrentUser(email: String) : User
     suspend fun getUserFavoriteMovies(email: String): Flow<List<UserWithMovies>>
-    suspend fun updateUserFavoriteMovies(userId: Int, movieId: Int)
+    suspend fun updateUserFavoriteMovies(userId: Int, newMovie: Movie, movieFavorites: List<Movie>)
 }
