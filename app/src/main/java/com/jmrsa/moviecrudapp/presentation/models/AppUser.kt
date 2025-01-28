@@ -7,11 +7,13 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class AppUser (
     val userName: String,
-    val email: String
+    val email: String,
+    val imageUri: String? = ""
 ) : Parcelable
 
 
 fun User.toAppUser() = AppUser(
     userName = userName,
-    email = email
+    email = email,
+    imageUri = imageUri
 )

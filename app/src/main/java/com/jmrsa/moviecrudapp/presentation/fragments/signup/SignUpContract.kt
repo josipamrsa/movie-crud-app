@@ -5,6 +5,7 @@ import com.jmrsa.moviecrudapp.presentation.fragments.base.BaseViewState
 
 interface SignUpContract {
     data class State(
+        val imageUri: String? = "",
         @StringRes val nameError: Int? = null,
         @StringRes val emailError: Int? = null,
         @StringRes val passwordError: Int? = null,

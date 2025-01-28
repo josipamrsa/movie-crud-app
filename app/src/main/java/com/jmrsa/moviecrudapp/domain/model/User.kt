@@ -10,5 +10,6 @@ data class User(
     val userName: String,
     val email: String,
     val password: String,
+    val imageUri: String? = "",
     @PrimaryKey(autoGenerate = true) val userId: Int? = null
 )

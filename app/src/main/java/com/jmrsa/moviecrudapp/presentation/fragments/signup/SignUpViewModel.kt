@@ -32,13 +32,18 @@ class SignUpViewModel(
         }
     }
 
+    fun onImageSelected(imageUri: String) {
+        _viewState.update { it.copy(imageUri = imageUri) }
+    }
+
     fun onSignUpClicked(name: String, email: String, password: String, confirmPassword: String) {
         val isDataValid = checkFormData(name, email, password, confirmPassword)
 
         if (isDataValid.not()) return
 
         launchInContextWithProgress {
-            val user = registerUserUseCase.registerUser(name, email, password)?.toAppUser()
+            val imageUri = _viewState.value?.imageUri.orEmpty()
+            val user = registerUserUseCase.registerUser(name, email, password, imageUri)?.toAppUser()
 
             if (user.isNull()) return@launchInContextWithProgress
             _effect.trySend(SignUpContract.Effect.NavigateToHome)

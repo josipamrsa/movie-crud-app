@@ -2,10 +2,12 @@ package com.jmrsa.moviecrudapp.presentation.fragments.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.jmrsa.moviecrudapp.R
 import com.jmrsa.moviecrudapp.databinding.LayoutHomeBinding
 import com.jmrsa.moviecrudapp.presentation.fragments.base.BaseFragment
@@ -32,6 +34,11 @@ class HomeFragment : BaseFragment<LayoutHomeBinding>() {
 
         homeViewModel.viewState.observe(this) { movieData ->
             binding.apply {
+                movieData.user?.imageUri.let {
+                    imageProfile.load(it)
+                    imageProfile.scaleType = ImageView.ScaleType.CENTER_CROP
+                }
+
                 rvMovieFavorites.apply {
                     layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
                     adapter = ImageViewAdapter(

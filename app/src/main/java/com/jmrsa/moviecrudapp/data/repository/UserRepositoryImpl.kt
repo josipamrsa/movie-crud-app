@@ -11,12 +11,13 @@ import kotlinx.coroutines.flow.Flow
 class UserRepositoryImpl(
     private val userDao: UserDao
 ) : UserRepository {
-    override suspend fun registerUser(name: String, email: String, password: String): Long {
+    override suspend fun registerUser(name: String, email: String, password: String, imageUri: String): Long {
         return userDao.insertUser(
             User(
                 userName = name,
                 email = email,
-                password = password
+                password = password,
+                imageUri = imageUri
             )
         )
     }

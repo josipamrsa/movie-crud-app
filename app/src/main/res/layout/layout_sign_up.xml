@@ -25,15 +25,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:layout_width="116dp"
             android:layout_height="116dp"
-            android:contentDescription="@string/movie_crud_img_picker_cd"
-            android:src="@drawable/image_picker_icon"
+            app:cardCornerRadius="200dp"
+            app:cardElevation="5dp"
             app:layout_constraintBottom_toTopOf="@+id/inputLayoutConfirm"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imagePicker"
+                android:background="@drawable/circular_picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/placeholder_image_picker"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/movie_crud_img_picker_cd"
+                android:scaleType="centerInside" />
+
+        </androidx.cardview.widget.CardView>
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/inputLayoutName"
