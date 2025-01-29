@@ -34,7 +34,12 @@ class HomeViewModel(
     init {
         launchWithProgress {
             val user = withContext(Dispatchers.IO) { fetchUser() }
-            if (user.email.isEmpty()) return@launchWithProgress
+
+            if (user.email.isEmpty()) {
+                getCurrentUserUseCase.clearPreferences()
+                _effect.trySend(HomeContract.Effect.NavigateToSignUp)
+                return@launchWithProgress
+            }
 
             val favorites = fetchFavorites(user)
 

@@ -73,9 +73,14 @@ class HomeFragment : BaseFragment<LayoutHomeBinding>() {
             homeViewModel.effect.collectLatest { update ->
                 when (update) {
                     HomeContract.Effect.NavigateToSearch -> navigateToSearch()
+                    HomeContract.Effect.NavigateToSignUp -> navigateToSignUp()
                 }
             }
         }
+    }
+
+    private fun navigateToSignUp() {
+        findNavController().navigate(R.id.action_homeFragment_to_signUpFragment)
     }
 
     private fun navigateToSearch() {

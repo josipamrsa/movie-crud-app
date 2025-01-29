@@ -1,10 +1,7 @@
 package com.jmrsa.moviecrudapp.presentation.fragments.signup
 
-import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.WindowManager.LayoutParams
 import android.widget.ImageView
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.PickVisualMediaRequest

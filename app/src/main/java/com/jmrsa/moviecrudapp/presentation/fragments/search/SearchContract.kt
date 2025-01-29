@@ -13,5 +13,6 @@ interface SearchContract {
 
     sealed interface Effect {
         data object NavigateToHome: Effect
+        data object NavigateToSignUp: Effect
     }
 }

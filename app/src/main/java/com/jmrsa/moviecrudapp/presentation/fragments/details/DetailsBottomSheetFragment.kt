@@ -75,9 +75,14 @@ class DetailsBottomSheetFragment : ModalBottomSheetDialogFragment<LayoutDetailsB
             detailsViewModel.effect.collectLatest { update ->
                 when (update) {
                     DetailsContract.Effect.NavigateToHome -> navigateBack()
+                    DetailsContract.Effect.NavigateToSignUp -> navigateToSignUp()
                 }
             }
         }
+    }
+
+    private fun navigateToSignUp() {
+        findNavController().navigate(R.id.action_detailsBottomSheet_to_signUpFragment)
     }
 
     private fun navigateBack() {

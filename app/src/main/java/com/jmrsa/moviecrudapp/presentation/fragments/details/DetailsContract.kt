@@ -39,5 +39,6 @@ interface DetailsContract {
 
     sealed interface Effect {
         data object NavigateToHome: Effect
+        data object NavigateToSignUp: Effect
     }
 }

@@ -61,9 +61,14 @@ class SearchFragment : BaseFragment<LayoutSearchBinding>() {
             searchViewModel.effect.collectLatest { update ->
                 when (update) {
                     SearchContract.Effect.NavigateToHome -> navigateToHome()
+                    SearchContract.Effect.NavigateToSignUp -> navigateToSignUp()
                 }
             }
         }
+    }
+
+    private fun navigateToSignUp() {
+        findNavController().navigate(R.id.action_searchFragment_to_signUpFragment)
     }
 
     private fun navigateToHome() {

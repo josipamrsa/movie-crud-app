@@ -12,6 +12,7 @@ interface HomeContract {
     ) : BaseViewState
 
     sealed interface Effect {
+        data object NavigateToSignUp: Effect
         data object NavigateToSearch: Effect
     }
 }

@@ -33,10 +33,13 @@ class DetailsViewModel(
     init {
         launchWithProgress {
             val user = withContext(Dispatchers.IO) { fetchUser() }
-            if (user.email.isEmpty()) return@launchWithProgress
+            if (user.email.isEmpty()) {
+                getCurrentUserUseCase.clearPreferences()
+                _effect.trySend(DetailsContract.Effect.NavigateToSignUp)
+                return@launchWithProgress
+            }
 
             val favorites = fetchFavorites(user)
-
 
             _viewState.update {
                 it.copy(

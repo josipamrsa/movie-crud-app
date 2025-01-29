@@ -22,4 +22,10 @@ class PreferencesRepositoryImpl(
                 putString("CURRENT_ACTIVE_EMAIL", value)
             }
         }
+
+    override fun clearSharedPreferences() {
+        val editor = preferences.edit()
+        editor.clear()
+        editor.apply()
+    }
 }

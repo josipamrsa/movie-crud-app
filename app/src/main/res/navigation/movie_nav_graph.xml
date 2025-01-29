@@ -23,6 +23,9 @@
             android:id="@+id/action_homeFragment_to_detailsBottomSheet"
             app:destination="@id/detailsBottomSheet">
         </action>
+        <action
+            android:id="@+id/action_homeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
 
     </fragment>
     <fragment
@@ -36,6 +39,9 @@
             android:id="@+id/action_searchFragment_to_detailsBottomSheet"
             app:destination="@id/detailsBottomSheet">
         </action>
+        <action
+            android:id="@+id/action_searchFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
 
     </fragment>
     <dialog
@@ -46,5 +52,8 @@
             android:name="movieDetails"
             app:argType="com.jmrsa.moviecrudapp.presentation.models.AppMovie"
             app:nullable="false" />
+        <action
+            android:id="@+id/action_detailsBottomSheet_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </dialog>
 </navigation>

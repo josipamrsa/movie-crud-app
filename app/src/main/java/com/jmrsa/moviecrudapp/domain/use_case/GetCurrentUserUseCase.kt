@@ -10,6 +10,7 @@ interface GetCurrentUserUseCase {
     suspend fun currentUserEmail() : String?
     suspend fun isCurrentUserInPreferences() : Boolean
     suspend fun retrieveCurrentUserFromDatabase(email: String) : User
+    suspend fun clearPreferences()
 }
 
 class GetCurrentUserUseCaseImpl(
@@ -27,6 +28,10 @@ class GetCurrentUserUseCaseImpl(
 
     override suspend fun retrieveCurrentUserFromDatabase(email: String) : User {
         return userRepository.getCurrentUser(email)
+    }
+
+    override suspend fun clearPreferences() {
+        preferencesRepository.clearSharedPreferences()
     }
 
 }
