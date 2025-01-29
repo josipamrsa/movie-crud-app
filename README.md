@@ -2,7 +2,7 @@
 
 This project is a simple movie browsing and bookmarking application, featuring local bookmarking, searching and browsing through a small dataset of popular movies. It is built with XML views, 
 fragments and data-binding for UI, Room database for locally saving data, Retrofit and OkHttp for networking, and Koin for managing dependency injections. The app architecture 
-follows [Clean Architecture principles](https://developer.android.com/topic/architecture) and MVVM pattern.
+follows [Clean Architecture principles](https://developer.android.com/topic/architecture) and MVVM pattern. You can see functionality overview here: https://www.loom.com/share/9b6c9a18485b4344be3b7ea6645fb38b?sid=08c5a2ee-5ee6-41ae-918b-bb9b3e71aa26
 
 
 ## App structure
