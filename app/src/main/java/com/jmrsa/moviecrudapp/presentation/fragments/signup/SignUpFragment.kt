@@ -41,8 +41,6 @@ class SignUpFragment : BaseFragment<LayoutSignUpBinding>() {
         binding.viewmodel = signUpViewModel
         binding.lifecycleOwner = this
 
-
-
         binding.apply {
             buttonSignUp.setOnClickListener {
                 signUpViewModel.onSignUpClicked(

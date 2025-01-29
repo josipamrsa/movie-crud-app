@@ -26,10 +26,8 @@
     <string name="movie_crud_label_language">Original Language</string>
     <string name="movie_crud_label_rating">Rating</string>
 
+    <string name="movie_crud_all_movies_label">All Movies</string>
     <string name="movie_crud_label_search">Search</string>
-
-
-
 
 
     <!-- Content descriptors -->
@@ -41,7 +39,7 @@
     <string name="movie_crud_label_favorite_button_cd">Favorite movie button</string>
     <string name="movie_crud_label_close_button_cd">Close modal dialog button</string>
     <string name="movie_crud_label_back_button_cd">Go back button</string>
-    <string name="movie_crud_all_movies_label">All Movies</string>
+
 
 
 </resources>
