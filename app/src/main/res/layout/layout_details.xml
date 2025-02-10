@@ -51,6 +51,7 @@
 
             </LinearLayout>
 
+            <!-- REVIEW: the margin end here causes the image to not be centered-->
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardMovieCoverLarge"
                 android:layout_width="203dp"

@@ -7,6 +7,11 @@ import com.jmrsa.moviecrudapp.domain.repository.UserRepository
 import com.jmrsa.moviecrudapp.utils.isNull
 
 interface GetCurrentUserUseCase {
+    //REVIEW: use cases should only provide a single functionality
+    // so each of these methods should be a separate use case class
+    // which overrides the invoke method
+    // https://developer.android.com/topic/architecture#domain-layer
+    // https://developer.android.com/topic/architecture/domain-layer#use-cases-kotlin
     suspend fun currentUserEmail() : String?
     suspend fun isCurrentUserInPreferences() : Boolean
     suspend fun retrieveCurrentUserFromDatabase(email: String) : User
@@ -33,7 +38,6 @@ class GetCurrentUserUseCaseImpl(
     override suspend fun clearPreferences() {
         preferencesRepository.clearSharedPreferences()
     }
-
 }
 
 

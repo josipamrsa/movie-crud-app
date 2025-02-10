@@ -63,6 +63,8 @@ class SearchViewModel(
     }
 
     private suspend fun fetchFavorites(user: AppUser): MutableList<AppMovie> {
+        //REVIEW: would have been nice to create flow for movies and favorites and combine them properly
+        // this does not react to favorite changes by itself
         val userFavorites = getUserFavoritesUseCase.getUserFavorites(user.email).firstOrNull()
         return userFavorites?.firstOrNull()?.favorites?.map { it.toAppMovie(isFavorited = true) }?.toMutableList()
             ?: mutableListOf()
@@ -89,8 +91,13 @@ class SearchViewModel(
     }
 
     fun onSearchValueChanged(searchQuery: String) {
+        //REVIEW: instead of directly performing the search it would have been better to
+        // create a separate SharedFlow for the search query, which you could then subscribe to
+        // and debounce in the viewmodel
         launchIn {
+            //REVIEW: this will perform a network request every time a character is changed
             val updatedMovieList = fetchAllMovies()
+                //REVIEW: filter should have used a ignoreCase = true
                 .filter { it.title?.contains(searchQuery) == true }
 
             _viewState.update {
@@ -111,6 +118,7 @@ class SearchViewModel(
                 updateUserFavoritesUseCase.updateUserFavorites(
                     email, appMovie.toMovie(), newMovieFavorites.map { it.toMovie() })
 
+                //REVIEW: same issue as in the [HomeViewModel]
                 getUserFavoritesUseCase.getUserFavorites(email).collectLatest { userFavorites ->
                     val favorites =
                         userFavorites.first().favorites.map { movie -> movie.toAppMovie(isFavorited = true) }

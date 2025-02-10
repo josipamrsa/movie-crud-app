@@ -41,6 +41,9 @@ class HomeViewModel(
                 return@launchWithProgress
             }
 
+            //REVIEW: as you only do this in the init block and you do not
+            // properly subscribe to favorites (by using firstOrNull) this does not work properly
+            // when returning from the search screen
             val favorites = fetchFavorites(user)
 
             val picks = fetchStaffPicks().map { pick ->
@@ -101,6 +104,9 @@ class HomeViewModel(
                 updateUserFavoritesUseCase.updateUserFavorites(
                     email, appMovie.toMovie(), newMovieFavorites.map { it.toMovie() })
 
+                //REVIEW: you are setting up a new subscription here every time the user clicks on the favorite icon
+                //this causes a lot of unnecessary callbacks. would have been better to properly
+                //subscribe to favorites in the viewmodel and not update the view state here
                 getUserFavoritesUseCase.getUserFavorites(email).collectLatest { userFavorites ->
                     val favorites =
                         userFavorites.first().favorites.map { movie -> movie.toAppMovie(isFavorited = true) }

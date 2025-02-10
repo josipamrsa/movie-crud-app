@@ -11,5 +11,6 @@ data class User(
     val email: String,
     val password: String,
     val imageUri: String? = "",
+    //REVIEW: why is user id nullable? could be Int = 0
     @PrimaryKey(autoGenerate = true) val userId: Int? = null
 )
