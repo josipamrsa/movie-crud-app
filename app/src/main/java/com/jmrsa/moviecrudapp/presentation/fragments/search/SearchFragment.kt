@@ -72,6 +72,9 @@ class SearchFragment : BaseFragment<LayoutSearchBinding>() {
     }
 
     private fun navigateToHome() {
+        //REVIEW: this actually adds another fragment to your history stack instead of navigation back
+        //using the back button of your device will actually pop the backstack and breaks
+        // your home fragment setup for favorites
         findNavController().navigate(R.id.action_searchFragment_to_homeFragment)
     }
 

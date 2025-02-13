@@ -27,6 +27,10 @@ class DetailsViewModel(
     private val _viewState = MutableLiveData(DetailsContract.State(movieDetails))
     val viewState: LiveData<DetailsContract.State> = _viewState
 
+    //REVIEW: using channels to propagate ui events from the viewmodel is discouraged by some
+    // google engineers. you should make these part of your view state instead or handle it
+    // directly in UI
+    // https://medium.com/androiddevelopers/viewmodel-one-off-event-antipatterns-16a1da869b95
     private val _effect: Channel<DetailsContract.Effect> = Channel(Channel.BUFFERED)
     val effect = _effect.receiveAsFlow()
 
@@ -83,6 +87,7 @@ class DetailsViewModel(
                 updateUserFavoritesUseCase.updateUserFavorites(
                     email, appMovie.toMovie(), newMovieFavorites.map { it.toMovie() })
 
+                //REVIEW: same issue as in [HomeViewModel]
                 getUserFavoritesUseCase.getUserFavorites(email).collectLatest { userFavorites ->
                     val favorites =
                         userFavorites.first().favorites.map { movie -> movie.toAppMovie(isFavorited = true) }
